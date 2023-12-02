@@ -64,18 +64,24 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         int warm = res.getColor(R.color.warm);
         int cool = res.getColor(R.color.cool);
         int frigid = res.getColor(R.color.frigid);
+        int white = res.getColor(R.color.white);
+        int black = res.getColor(R.color.black);
         // Update the temperature value on the screen
         float temperatureValue = event.values[0];
         temperatureTextView.setText("Temperature: " + temperatureValue + " °C");
         // Controls background color of the temperatureTextView
         if(temperatureValue >= 95){
             temperatureTextView.setBackgroundColor(hot);
+            temperatureTextView.setTextColor(black);
         } else if (temperatureValue >= 70 && temperatureValue < 95) {
             temperatureTextView.setBackgroundColor(warm);
+            temperatureTextView.setTextColor(black);
         }else if (temperatureValue >= 35 && temperatureValue < 70) {
             temperatureTextView.setBackgroundColor(cool);
+            temperatureTextView.setTextColor(white);
         }else {
             temperatureTextView.setBackgroundColor(frigid);
+            temperatureTextView.setTextColor(white);
         }
 
 
